@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Калькулятор вероятности тотала</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>🏀 Калькулятор вероятности тотала</h1>
+        <p class="description">
+            Инструмент использует симуляцию Монте-Карло для оценки вероятного финального тотала на основе текущего счета и оставшегося времени.
+        </p>
+
+        <div class="card inputs">
+            <h2>Входные данные</h2>
+            <div class="input-group">
+                <label for="score1">Счет Команды 1 ("Чили Пепперс")</label>
+                <input type="number" id="score1" value="107">
+            </div>
+            <div class="input-group">
+                <label for="score2">Счет Команды 2 ("Рэд Клос")</label>
+                <input type="number" id="score2" value="109">
+            </div>
+            <div class="input-group">
+                <label for="minutes">Осталось минут</label>
+                <input type="number" id="minutes" value="1">
+            </div>
+            <div class="input-group">
+                <label for="seconds">Осталось секунд</label>
+                <input type="number" id="seconds" value="13">
+            </div>
+             <div class="input-group">
+                <label for="gameDuration">Общая длительность игры (минут)</label>
+                <input type="number" id="gameDuration" value="48" title="4 четверти по 12 минут">
+            </div>
+            <button id="calculateBtn">Рассчитать вероятность</button>
+        </div>
+
+        <div id="loader" class="hidden"></div>
+
+        <div id="results" class="card results hidden">
+            <h2>Результаты симуляции</h2>
+            <p><strong>Средний прогнозируемый тотал:</strong> <span id="avgTotal"></span></p>
+            <p><strong>Наиболее вероятный диапазон:</strong> <span id="likelyRange"></span></p>
+            <hr>
+            <h3>Проверить конкретный тотал</h3>
+            <div class="check-total">
+                 <label for="checkTotalInput">Тотал для проверки (например, 220.5)</label>
+                 <input type="number" step="0.5" id="checkTotalInput" value="220.5">
+                 <button id="checkTotalBtn">Проверить</button>
+            </div>
+            <p id="specificProbability"></p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
